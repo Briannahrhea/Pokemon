@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Number Generator with Titles, Dollar Values, and Images</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 500px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    #result img {
+      margin-top: 15px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Connor's Pokemon Pull Game</h1>
+    <button onclick="generateRandomNumber()">Generate Random Number</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    // Manually insert the titles, dollar values, and image URLs for each number
+    const numberLibrary = [
+      { title: "Charizard EX", dollarValue: "$200.00", image: "https://th.bing.com/th/id/OIP.RoX3xTFJsRrOd1Dsrlkl6wHaKe?rs=1&pid=ImgDetMain" },
+      { title: "Title 2", dollarValue: "$450.50", image: "https://via.placeholder.com/150" },
+      { title: "Title 3", dollarValue: "$123.75", image: "https://via.placeholder.com/150" },
+      { title: "Title 4", dollarValue: "$500.00", image: "https://via.placeholder.com/150" },
+      { title: "Title 5", dollarValue: "$650.30", image: "https://via.placeholder.com/150" },
+      // Add more items here for a total of 100
+      // Example:
+      // { title: "Title 6", dollarValue: "$320.00", image: "imageURL" }
+      // ...
+    ];
+
+    // Function to generate random number and display title, dollar value, and image
+    function generateRandomNumber() {
+      const randomIndex = Math.floor(Math.random() * numberLibrary.length);
+      const randomItem = numberLibrary[randomIndex];
+
+      // Display title, dollar value, and image
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `
+        <h3>Card: ${randomItem.title}</h3>
+        <p>Market Value: ${randomItem.dollarValue}</p>
+        <img src="${randomItem.image}" alt="Image associated with ${randomItem.title}">
+      `;
+    }
+  </script>
+
+</body>
+</html>
